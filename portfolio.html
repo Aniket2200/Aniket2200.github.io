@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Aniket Patil | Junior Software Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Aniket Patil, Junior Software Engineer specializing in Odoo, Python, JavaScript, and ERP customization." />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #050816;
+      --bg-alt: #0b1020;
+      --accent: #4f46e5;
+      --accent-soft: rgba(79, 70, 229, 0.15);
+      --accent-strong: #6366f1;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --card-bg: rgba(15, 23, 42, 0.9);
+      --border-soft: rgba(148, 163, 184, 0.25);
+      --danger: #ef4444;
+      --success: #22c55e;
+      --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.9);
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --nav-height: 72px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--nav-height);
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 40%, #020617 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #020617;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #111827;
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #1f2937;
+    }
+
+    /* Layout */
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-kicker {
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-strong);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      max-width: 540px;
+      font-size: 0.95rem;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.92));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .nav-inner {
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 30% 0, #6366f1, #22c55e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 14px 30px rgba(79, 70, 229, 0.6);
+    }
+
+    .nav-title {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .nav-title-main {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .nav-title-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-link {
+      position: relative;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      color: var(--text-muted);
+      transition: 0.2s ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 3px;
+      height: 2px;
+      border-radius: 999px;
+      transform-origin: center;
+      transform: scaleX(0);
+      background: linear-gradient(to right, #6366f1, #22c55e);
+      transition: transform 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--text-main);
+      background: rgba(148, 163, 184, 0.05);
+    }
+
+    .nav-link.active::after {
+      transform: scaleX(1);
+    }
+
+    .nav-cta {
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #6366f1, #22c55e);
+      border: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 16px 45px rgba(79, 70, 229, 0.5);
+    }
+
+    .nav-cta span {
+      font-size: 1.1rem;
+    }
+
+    .nav-toggle {
+      display: none;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      border-radius: 999px;
+      padding: 0.4rem 0.6rem;
+      background: rgba(15, 23, 42, 0.8);
+      cursor: pointer;
+    }
+
+    .nav-toggle-line {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      position: relative;
+      display: block;
+    }
+
+    .nav-toggle-line::before,
+    .nav-toggle-line::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      left: 0;
+    }
+
+    .nav-toggle-line::before {
+      top: -5px;
+    }
+
+    .nav-toggle-line::after {
+      bottom: -5px;
+    }
+
+    .nav-links-mobile {
+      display: none;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 0.75rem 0 1rem;
+    }
+
+    .nav-links-mobile .nav-link {
+      display: block;
+    }
+
+    /* Hero */
+    .hero {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-strong);
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 4vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-title span {
+      background: linear-gradient(to right, #6366f1, #22c55e);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 560px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-tag {
+      padding: 0.25rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: rgba(15, 23, 42, 0.85);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.65rem 1.4rem;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+      font-weight: 500;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #6366f1, #22c55e);
+      color: #f9fafb;
+      box-shadow: 0 18px 45px rgba(79, 70, 229, 0.6);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 60px rgba(79, 70, 229, 0.9);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(148, 163, 184, 0.7);
+      color: var(--text-main);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .btn-icon {
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    .hero-highlight-box {
+      position: relative;
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      background: radial-gradient(circle at top, #111827, #020617);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .hero-orbit {
+      position: absolute;
+      inset: -60%;
+      background: radial-gradient(circle at 0 0, rgba(79, 70, 229, 0.35), transparent 55%),
+                  radial-gradient(circle at 100% 100%, rgba(34, 197, 94, 0.35), transparent 55%);
+      opacity: 0.45;
+      z-index: -1;
+    }
+
+    .hero-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      background: radial-gradient(circle at 20% 0, #6366f1, #22c55e);
+      font-weight: 700;
+      font-size: 1.6rem;
+      box-shadow: 0 20px 50px rgba(34, 197, 94, 0.55);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.35);
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 1.2rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta-item span {
+      display: block;
+    }
+
+    .hero-meta-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.15rem;
+      color: #6b7280;
+    }
+
+    /* Cards + utilities */
+    .card {
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.96));
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background: radial-gradient(circle at 0 0, rgba(79, 70, 229, 0.2), transparent 50%);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      z-index: -1;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2.5rem;
+    }
+
+    .about-text {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+
+    .about-highlight {
+      padding: 1rem;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      font-size: 0.85rem;
+    }
+
+    .about-highlight strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+      color: #e5e7eb;
+    }
+
+    .about-side-card {
+      padding: 1.25rem;
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top, #111827, #020617);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .about-side-title {
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .about-side-title span {
+      font-size: 1.1rem;
+    }
+
+    .about-contact-list {
+      list-style: none;
+      font-size: 0.85rem;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .about-contact-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #6b7280;
+    }
+
+    .about-contact-value a {
+      color: var(--accent-strong);
+      word-break: break-all;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2rem;
+    }
+
+    .skill-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .chip {
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      font-size: 0.8rem;
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--text-muted);
+    }
+
+    .skills-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .skill-group-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #6b7280;
+      margin-bottom: 0.4rem;
+    }
+
+    .skill-meter-list {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.9rem;
+    }
+
+    .skill-meter-item {
+      display: grid;
+      gap: 0.2rem;
+      font-size: 0.8rem;
+    }
+
+    .skill-meter-label-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-muted);
+    }
+
+    .skill-meter-bar {
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(30, 64, 175, 0.6);
+      overflow: hidden;
+    }
+
+    .skill-meter-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #6366f1, #22c55e);
+      transform-origin: left;
+      transform: scaleX(0.2);
+      transition: transform 0.9s ease-out;
+    }
+
+    .skill-meter-fill.visible {
+      transform: scaleX(1);
+    }
+
+    /* Experience */
+    .timeline {
+      display: grid;
+      gap: 1.5rem;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, rgba(148, 163, 184, 0.7), transparent);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 1rem;
+    }
+
+    .timeline-marker-wrap {
+      padding-top: 0.16rem;
+    }
+
+    .timeline-marker {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      border: 2px solid #6366f1;
+      background: radial-gradient(circle, #6366f1 0, #22c55e 40%, #020617 60%);
+      box-shadow: 0 0 0 6px rgba(79, 70, 229, 0.25);
+    }
+
+    .timeline-card {
+      padding: 1.1rem 1.25rem;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.88rem;
+    }
+
+    .timeline-role {
+      font-weight: 500;
+      margin-bottom: 0.1rem;
+    }
+
+    .timeline-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-bullets {
+      margin-left: 1rem;
+      padding-left: 0;
+      list-style: disc;
+      display: grid;
+      gap: 0.3rem;
+      color: var(--text-muted);
+    }
+
+    /* Education & Certifications */
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2rem;
+    }
+
+    .edu-list,
+    .cert-list {
+      display: grid;
+      gap: 1rem;
+      font-size: 0.88rem;
+    }
+
+    .edu-item,
+    .cert-item {
+      padding: 1rem;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    .edu-degree {
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .edu-meta,
+    .cert-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .edu-extra {
+      font-size: 0.78rem;
+      color: #9ca3af;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: flex-start;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .form-row {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .form-field {
+      display: grid;
+      gap: 0.25rem;
+      font-size: 0.86rem;
+    }
+
+    .form-label {
+      font-size: 0.82rem;
+      color: #d1d5db;
+    }
+
+    .form-input,
+    .form-textarea {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 0.6rem 0.9rem;
+      font-family: inherit;
+      font-size: 0.86rem;
+      color: #e5e7eb;
+      outline: none;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .form-textarea {
+      border-radius: 18px;
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--accent-strong);
+      box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.5);
+      background: #020617;
+    }
+
+    .form-error {
+      font-size: 0.75rem;
+      color: var(--danger);
+      display: none;
+    }
+
+    .form-success {
+      font-size: 0.8rem;
+      color: var(--success);
+      margin-top: 0.25rem;
+      display: none;
+    }
+
+    .form-input.error,
+    .form-textarea.error {
+      border-color: var(--danger);
+    }
+
+    .contact-side {
+      padding: 1.25rem;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, #0b1020, #020617);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .contact-side h3 {
+      font-size: 1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-side-list {
+      list-style: none;
+      display: grid;
+      gap: 0.45rem;
+      margin-top: 0.75rem;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 1.8rem 0 2.4rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-grid,
+      .skills-grid,
+      .two-col-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 3rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .nav-toggle {
+        display: block;
+      }
+      .nav-links-mobile.open {
+        display: flex;
+      }
+      .hero {
+        padding-top: 2.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-meta {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <div class="nav-brand">
+        <div class="nav-logo">AP</div>
+        <div class="nav-title">
+          <span class="nav-title-main">Aniket Patil</span>
+          <span class="nav-title-sub">Junior Software Engineer · Pune</span>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <button class="nav-cta" onclick="scrollToSection('contact')">
+        Let’s connect <span>↗</span>
+      </button>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span class="nav-toggle-line"></span>
+      </button>
+    </div>
+
+    <div class="container">
+      <nav class="nav-links-mobile" id="mobileNav">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="hero-kicker">Junior Software Engineer · Odoo · Python · JavaScript</p>
+          <h1 class="hero-title">
+            Hi, I’m <span>Aniket Patil</span> — I build efficient, user-friendly systems.
+          </h1>
+          <p class="hero-subtitle">
+            Junior Software Engineer with expertise in Odoo, Python, and JavaScript. Experienced in ERP customization, API integration, and resolving real-time issues with a focus on clean, maintainable code and smooth user experience.
+          </p>
+
+          <div class="hero-tags">
+            <span class="hero-tag">Odoo Customization</span>
+            <span class="hero-tag">ERP Workflows</span>
+            <span class="hero-tag">API Integration</span>
+            <span class="hero-tag">MVC Architecture</span>
+            <span class="hero-tag">Bug Analysis & Debugging</span>
+          </div>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="scrollToSection('contact')">
+              Contact Me <span class="btn-icon">✉️</span>
+            </button>
+            <button class="btn btn-ghost" onclick="downloadResume()">
+              Download Resume <span class="btn-icon">⬇</span>
+            </button>
+          </div>
+        </div>
+
+        <aside class="hero-highlight-box">
+          <div class="hero-orbit"></div>
+          <div class="hero-avatar">AP</div>
+
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            Open to opportunities in backend, ERP & full-stack roles
+          </div>
+
+          <p style="font-size:0.86rem;color:var(--text-muted);margin-top:0.6rem;">
+            Currently working at Pragmatic Techsoft Pvt Ltd, building ERP solutions, customizing Odoo modules, and integrating third-party services like WhatsApp to streamline business workflows.
+          </p>
+
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Location</span>
+              <span>Pune, Maharashtra</span>
+            </div>
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Current Role</span>
+              <span>Junior Software Engineer · Pragmatic Techsoft</span>
+            </div>
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Primary Stack</span>
+              <span>Odoo · Python · JavaScript · SQL</span>
+            </div>
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Languages</span>
+              <span>English · Hindi · Marathi</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">About</p>
+          <h2 class="section-title">Who I am & how I work</h2>
+          <p class="section-subtitle">
+            I enjoy turning complex business requirements into logical, maintainable ERP flows and intuitive interfaces. My work is driven by curiosity, clean architecture, and collaboration.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div>
+            <p class="about-text">
+              I am a Junior Software Engineer specializing in the Odoo ecosystem with strong experience in Python, JavaScript, and ERP customization. At Pragmatic Techsoft Pvt Ltd, I have worked across Sales, Marketing, and core ERP workflows, designing and customizing modules that align with real-world business operations.
+            </p>
+            <p class="about-text">
+              I have hands-on experience integrating third-party APIs (including WhatsApp for business automation), debugging and resolving client-reported issues, and writing clear documentation and user guides. My work follows MVC architecture principles and leverages scheduled actions, role-based access, and ORM-driven data modeling.
+            </p>
+
+            <div class="about-highlights">
+              <div class="about-highlight">
+                <strong>Problem solver</strong>
+                I enjoy debugging tough issues, understanding root causes, and delivering stable, long-term fixes—rather than quick patches.
+              </div>
+              <div class="about-highlight">
+                <strong>Collaboration focused</strong>
+                Comfortable working with cross-functional teams, translating requirements into technical tasks, and documenting changes clearly.
+              </div>
+              <div class="about-highlight">
+                <strong>Always learning</strong>
+                With an MCA background and AWS Academy exposure, I keep exploring better patterns for backend, deployment, and scalable design.
+              </div>
+            </div>
+          </div>
+
+          <aside class="about-side-card">
+            <div class="about-side-title">
+              <span>Contact & Links</span>
+              <span>📬</span>
+            </div>
+            <ul class="about-contact-list">
+              <li>
+                <div class="about-contact-label">Phone</div>
+                <div class="about-contact-value">+91 9156457442</div>
+              </li>
+              <li>
+                <div class="about-contact-label">Email</div>
+                <div class="about-contact-value">
+                  <a href="mailto:aniketpatilap1002@gmail.com">aniketpatilap1002@gmail.com</a>
+                </div>
+              </li>
+              <li>
+                <div class="about-contact-label">Location</div>
+                <div class="about-contact-value">Nigdi, Pune, Maharashtra</div>
+              </li>
+              <li>
+                <div class="about-contact-label">LinkedIn</div>
+                <div class="about-contact-value">
+                  <a href="https://www.linkedin.com/in/aniket-patil-69b843203" target="_blank" rel="noopener">
+                    linkedin.com/in/aniket-patil-69b843203
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Skills</p>
+          <h2 class="section-title">Tech stack & strengths</h2>
+          <p class="section-subtitle">
+            From ERP customization to backend logic and integrations, here’s a quick view of the technologies I work with regularly.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="card">
+            <div class="skills-subtitle">Core technologies I use day to day.</div>
+            <div class="skill-chips">
+              <span class="chip">Python</span>
+              <span class="chip">Java</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">Odoo Framework</span>
+              <span class="chip">Odoo QWeb & XML</span>
+              <span class="chip">SQL</span>
+              <span class="chip">Git</span>
+              <span class="chip">Bitbucket</span>
+              <span class="chip">Docker</span>
+              <span class="chip">PyCharm</span>
+              <span class="chip">Visual Studio</span>
+              <span class="chip">Microsoft Office</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="skill-group-title">Proficiency snapshot</div>
+            <div class="skill-meter-list">
+              <div class="skill-meter-item">
+                <div class="skill-meter-label-row">
+                  <span>Odoo (ERP Customization)</span>
+                  <span>Advanced</span>
+                </div>
+                <div class="skill-meter-bar">
+                  <div class="skill-meter-fill" data-fill="0.92"></div>
+                </div>
+              </div>
+              <div class="skill-meter-item">
+                <div class="skill-meter-label-row">
+                  <span>Python (Backend & Scripts)</span>
+                  <span>Advanced</span>
+                </div>
+                <div class="skill-meter-bar">
+                  <div class="skill-meter-fill" data-fill="0.88"></div>
+                </div>
+              </div>
+              <div class="skill-meter-item">
+                <div class="skill-meter-label-row">
+                  <span>JavaScript (Web & Odoo UI)</span>
+                  <span>Intermediate–Advanced</span>
+                </div>
+                <div class="skill-meter-bar">
+                  <div class="skill-meter-fill" data-fill="0.8"></div>
+                </div>
+              </div>
+              <div class="skill-meter-item">
+                <div class="skill-meter-label-row">
+                  <span>SQL & ORM data modeling</span>
+                  <span>Intermediate</span>
+                </div>
+                <div class="skill-meter-bar">
+                  <div class="skill-meter-fill" data-fill="0.78"></div>
+                </div>
+              </div>
+              <div class="skill-meter-item">
+                <div class="skill-meter-label-row">
+                  <span>Git, Bitbucket & Collaboration</span>
+                  <span>Intermediate</span>
+                </div>
+                <div class="skill-meter-bar">
+                  <div class="skill-meter-fill" data-fill="0.82"></div>
+                </div>
+              </div>
+              <div class="skill-meter-item">
+                <div class="skill-meter-label-row">
+                  <span>Docker & Environment Setup</span>
+                  <span>Working Knowledge</span>
+                </div>
+                <div class="skill-meter-bar">
+                  <div class="skill-meter-fill" data-fill="0.7"></div>
+                </div>
+              </div>
+            </div>
+
+            <p style="font-size:0.78rem;color:var(--text-muted);margin-top:0.9rem;">
+              Comfortable working with MVC architecture, scheduled actions, access rights, and ORM-based data management inside the Odoo ecosystem.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Experience</p>
+          <h2 class="section-title">Professional journey</h2>
+          <p class="section-subtitle">
+            Real-world experience building, integrating, and maintaining ERP workflows for business teams.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker-wrap">
+              <div class="timeline-marker"></div>
+            </div>
+            <article class="timeline-card">
+              <div class="timeline-role">Junior Software Engineer</div>
+              <div class="timeline-meta">
+                <span>Pragmatic Techsoft Pvt Ltd · Pune, Maharashtra</span>
+                <span>2023 – Present</span>
+              </div>
+              <ul class="timeline-bullets">
+                <li>
+                  Developed and customized Odoo modules across Sales, Marketing, and ERP workflows using Python and the Odoo framework.
+                </li>
+                <li>
+                  Designed and implemented intuitive, responsive website features with Odoo QWeb, XML, and JavaScript to improve usability and branding.
+                </li>
+                <li>
+                  Integrated third-party services and APIs, including WhatsApp for business automation, enhancing communication workflows and lead engagement.
+                </li>
+                <li>
+                  Performed bug analysis, debugging, testing, and delivered timely fixes based on client-reported issues.
+                </li>
+                <li>
+                  Created and maintained functional documentation and user guides for smooth knowledge transfer across teams.
+                </li>
+                <li>
+                  Gained strong experience in MVC architecture, scheduled actions, access rights, and ORM-based data management.
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section id="education">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Education & Certifications</p>
+          <h2 class="section-title">Academic background</h2>
+          <p class="section-subtitle">
+            A solid foundation in computer applications, supported by hands-on technical courses and certifications.
+          </p>
+        </div>
+
+        <div class="two-col-grid">
+          <div>
+            <h3 style="font-size:1rem;margin-bottom:1rem;">Education</h3>
+            <div class="edu-list">
+              <div class="edu-item">
+                <div class="edu-degree">Master of Computer Application (MCA)</div>
+                <div class="edu-meta">Institute of Industrial Computer Management and Research · 2020 – 2022</div>
+              </div>
+
+              <div class="edu-item">
+                <div class="edu-degree">Bachelor of Computer Application (BCA)</div>
+                <div class="edu-meta">Prof. Ramkrishna More College · 2017 – 2020</div>
+                <div class="edu-extra">Percentage: 72.31%</div>
+              </div>
+
+              <div class="edu-item">
+                <div class="edu-degree">Higher Secondary Certificate (HSC)</div>
+                <div class="edu-meta">Shri. Mhalsakant Junior College · 2016 – 2017</div>
+                <div class="edu-extra">Percentage: 59.08%</div>
+              </div>
+
+              <div class="edu-item">
+                <div class="edu-degree">Secondary School Certificate (SSC)</div>
+                <div class="edu-meta">Shri. Mhalsakant Vidyalaya · 2014 – 2015</div>
+                <div class="edu-extra">Percentage: 78.80%</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 style="font-size:1rem;margin-bottom:1rem;">Certifications</h3>
+            <div class="cert-list">
+              <div class="cert-item">
+                <div class="edu-degree">AWS Academy Graduate</div>
+                <div class="cert-meta">AWS Academy Course</div>
+              </div>
+              <div class="cert-item">
+                <div class="edu-degree">C Language Participation Certificate</div>
+                <div class="cert-meta">Introductory programming exposure in C</div>
+              </div>
+            </div>
+
+            <div style="margin-top:1.25rem;">
+              <span class="pill">
+                <span class="pill-dot"></span>
+                Comfortable with English, Hindi & Marathi communication
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Contact</p>
+          <h2 class="section-title">Let’s work together</h2>
+          <p class="section-subtitle">
+            Whether it’s Odoo customization, API integrations, or backend work, feel free to reach out. I’ll get back to you as soon as possible.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card">
+            <form class="contact-form" id="contactForm" novalidate>
+              <div class="form-row">
+                <div class="form-field">
+                  <label class="form-label" for="name">Name</label>
+                  <input type="text" id="name" name="name" class="form-input" placeholder="Your full name" required />
+                  <span class="form-error" id="nameError">Please enter your name.</span>
+                </div>
+
+                <div class="form-field">
+                  <label class="form-label" for="email">Email</label>
+                  <input type="email" id="email" name="email" class="form-input" placeholder="you@example.com" required />
+                  <span class="form-error" id="emailError">Please enter a valid email address.</span>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label class="form-label" for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" class="form-input" placeholder="Project idea, role, or message subject" required />
+                <span class="form-error" id="subjectError">Please add a subject.</span>
+              </div>
+
+              <div class="form-field">
+                <label class="form-label" for="message">Message</label>
+                <textarea id="message" name="message" class="form-textarea" placeholder="Tell me a bit about what you’re looking for..." required></textarea>
+                <span class="form-error" id="messageError">Please enter a short message.</span>
+              </div>
+
+              <div>
+                <button type="submit" class="btn btn-primary">
+                  Send Message <span class="btn-icon">📨</span>
+                </button>
+                <div class="form-success" id="formSuccess">
+                  Thank you! Your message has been (virtually) sent. You can also reach me directly at
+                  <a href="mailto:aniketpatilap1002@gmail.com" style="color:var(--accent-strong);">aniketpatilap1002@gmail.com</a>.
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <aside class="contact-side">
+            <h3>Prefer direct contact?</h3>
+            <p>
+              You can reach out to me directly via email or phone. I’m open to full-time roles and interesting project collaborations related to ERP, backend, or integration work.
+            </p>
+
+            <ul class="contact-side-list">
+              <li><strong>Email:</strong> <a href="mailto:aniketpatilap1002@gmail.com" style="color:var(--accent-strong);">aniketpatilap1002@gmail.com</a></li>
+              <li><strong>Phone:</strong> +91 9156457442</li>
+              <li><strong>Location:</strong> Nigdi, Pune, Maharashtra</li>
+              <li>
+                <strong>LinkedIn:</strong>
+                <a href="https://www.linkedin.com/in/aniket-patil-69b843203" target="_blank" rel="noopener" style="color:var(--accent-strong);">
+                  linkedin.com/in/aniket-patil-69b843203
+                </a>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© <span id="yearSpan"></span> · Designed & built by Aniket Patil</div>
+      <div class="footer-links">
+        <span class="footer-link">Odoo · Python · JavaScript · ERP</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll helper
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+
+    // Download resume (placeholder: opens mailto or you can link your PDF here)
+    function downloadResume() {
+      // If you upload your resume somewhere, replace URL below:
+      // window.open("https://your-resume-link.pdf", "_blank");
+      alert("You can link your PDF resume here in the downloadResume() function.");
+    }
+
+    // Mobile nav
+    const navToggle = document.querySelector(".nav-toggle");
+    const mobileNav = document.getElementById("mobileNav");
+
+    navToggle.addEventListener("click", () => {
+      mobileNav.classList.toggle("open");
+    });
+
+    mobileNav.querySelectorAll(".nav-link").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileNav.classList.remove("open");
+      });
+    });
+
+    // Active nav link on scroll
+    const navLinks = document.querySelectorAll(".nav-link[href^='#']");
+    const sections = Array.from(navLinks).map(link => document.querySelector(link.getAttribute("href")));
+
+    window.addEventListener("scroll", () => {
+      const scrollPos = window.scrollY + 90;
+      let currentId = "home";
+
+      sections.forEach(section => {
+        if (section && section.offsetTop <= scrollPos) {
+          currentId = section.id;
+        }
+      });
+
+      navLinks.forEach(link => {
+        if (link.getAttribute("href") === "#" + currentId) {
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
+        }
+      });
+    });
+
+    // Skills meter animation on scroll
+    const skillFills = document.querySelectorAll(".skill-meter-fill");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const scale = parseFloat(el.getAttribute("data-fill")) || 1;
+          el.style.transform = `scaleX(${scale})`;
+          el.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.35 });
+
+    skillFills.forEach(fill => observer.observe(fill));
+
+    // Simple contact form validation
+    const form = document.getElementById("contactForm");
+    const formSuccess = document.getElementById("formSuccess");
+
+    function showError(inputId, errorId, condition) {
+      const input = document.getElementById(inputId);
+      const error = document.getElementById(errorId);
+      if (condition) {
+        input.classList.add("error");
+        error.style.display = "block";
+      } else {
+        input.classList.remove("error");
+        error.style.display = "none";
+      }
+    }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const subject = document.getElementById("subject").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      let hasError = false;
+
+      showError("name", "nameError", !name);
+      if (!name) hasError = true;
+
+      const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      showError("email", "emailError", !emailValid);
+      if (!emailValid) hasError = true;
+
+      showError("subject", "subjectError", !subject);
+      if (!subject) hasError = true;
+
+      showError("message", "messageError", message.length < 5);
+      if (message.length < 5) hasError = true;
+
+      if (!hasError) {
+        form.reset();
+        formSuccess.style.display = "block";
+        setTimeout(() => {
+          formSuccess.style.display = "none";
+        }, 5000);
+      }
+    });
+
+    // Footer year
+    document.getElementById("yearSpan").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
